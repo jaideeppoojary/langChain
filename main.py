@@ -1,15 +1,19 @@
 from dotenv import load_dotenv
-from langchain_openai import AzureChatOpenAI
-import streamlit as st
+from langchain_openai import AzureOpenAI
+from env_setup import load_env
+# import streamlit as st
 
-load_dotenv()
+load_env()
+# st.title("Lang Chain Demo")
+# input_text =  st.text_input("Search what you want...")
 
-st.title("Lang Chain Demo")
-input_text =  st.text_input("Search what you want...")
+llm = AzureOpenAI(
+    deployment_name="gpt-35-turbo",
+    model_name="gpt-35-turbo",
+)
 
-llm = AzureChatOpenAI(temperature=0.8, openai_api_version="2023-05-15")
-
-if input_text:
-  st.write(input_text)
-  response = llm("Tell me a joke")
-  st.write(response)
+print(llm("What is the capital of Italy?"))
+# if input_text:
+#   st.write(input_text)
+#   response = llm("Tell me a joke")
+#   st.write(response)
