@@ -1,9 +1,7 @@
-from dotenv import load_dotenv
 from langchain_openai import AzureOpenAI
-from env_setup import load_env
 import streamlit as st
 from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain, SimpleSequentialChain, SequentialChain
+from langchain.chains import LLMChain, SequentialChain
 from langchain.memory import ConversationBufferMemory
 
 def start(llm: AzureOpenAI):
